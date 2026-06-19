@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Formal Mediterranean Request 🇮🇹🇬🇷</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --night:#071A2D;
+      --deep:#04111f;
+      --greek:#2F80ED;
+      --aegean:#66B9FF;
+      --cream:#FFF4E6;
+      --marble:#FFF9F0;
+      --tomato:#D64545;
+      --olive:#6F8F3E;
+      --lemon:#F7C948;
+      --gold:#F0B35A;
+      --glass:rgba(255,244,230,.08);
+      --stroke:rgba(255,244,230,.20);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+    html,body{min-height:100%;height:100%}
+    body{
+      font-family:'Outfit',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      color:var(--cream);
+      background:
+        radial-gradient(900px 600px at 15% 12%, rgba(47,128,237,.34), transparent 62%),
+        radial-gradient(900px 600px at 90% 10%, rgba(247,201,72,.18), transparent 58%),
+        radial-gradient(900px 700px at 80% 105%, rgba(214,69,69,.22), transparent 58%),
+        linear-gradient(155deg,#04111f 0%,#071A2D 44%,#0b2745 100%);
+      overflow:hidden;
+      position:relative;
+    }
+    body:before{
+      content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.22;
+      background-image:
+        linear-gradient(45deg, rgba(255,255,255,.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,.06) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,.06) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,.06) 75%);
+      background-size:42px 42px;
+      background-position:0 0,0 21px,21px -21px,-21px 0;
+      mask-image:linear-gradient(to bottom, transparent 0%, black 25%, transparent 100%);
+    }
+    body:after{
+      content:"";position:fixed;left:0;right:0;bottom:0;height:36vh;z-index:0;pointer-events:none;
+      background:
+        linear-gradient(to top,rgba(3,12,22,.94),rgba(3,12,22,.18),transparent),
+        repeating-linear-gradient(90deg,rgba(255,244,230,.055) 0 1px,transparent 1px 86px);
+    }
+    .decor{position:fixed;z-index:1;pointer-events:none;user-select:none;filter:drop-shadow(0 20px 30px rgba(0,0,0,.28))}
+    .lemon{width:78px;height:58px;border-radius:58% 48% 55% 45%;background:radial-gradient(circle at 36% 32%,#fff7a6 0 10%,var(--lemon) 36%,#d9a927 100%);opacity:.9}
+    .lemon:before{content:"";position:absolute;width:34px;height:16px;border-radius:50%;background:var(--olive);left:54px;top:-4px;transform:rotate(-26deg)}
+    .d1{top:10%;left:7%;transform:rotate(-14deg) scale(.9)}
+    .d2{right:7%;bottom:15%;transform:rotate(16deg) scale(.82)}
+    .column{width:112px;height:190px;right:4%;top:11%;opacity:.16;background:
+      linear-gradient(90deg,transparent 0 9%,rgba(255,249,240,.8) 9% 18%,transparent 18% 25%,rgba(255,249,240,.8) 25% 36%,transparent 36% 44%,rgba(255,249,240,.8) 44% 55%,transparent 55% 63%,rgba(255,249,240,.8) 63% 74%,transparent 74% 82%,rgba(255,249,240,.8) 82% 91%,transparent 91%),
+      linear-gradient(var(--marble),var(--marble));border-radius:12px}
+    .column:before,.column:after{content:"";position:absolute;left:-18px;right:-18px;height:22px;background:var(--marble);border-radius:8px}.column:before{top:-18px}.column:after{bottom:-18px}
+    .vespa{left:5%;bottom:10%;font-size:76px;opacity:.26;transform:rotate(-7deg)}
+    .olive{left:10%;top:58%;font-size:70px;opacity:.22;transform:rotate(18deg)}
+    #confetti{position:fixed;inset:0;z-index:2;pointer-events:none}
+    .music{position:fixed;right:16px;top:14px;z-index:60;width:48px;height:48px;border-radius:999px;border:1.5px solid rgba(255,244,230,.35);background:rgba(4,17,31,.55);backdrop-filter:blur(12px);color:var(--cream);font-size:19px;display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.24);transition:transform .2s,background .2s}
+    .music:hover{transform:translateY(-2px) scale(1.04);background:rgba(255,244,230,.12)}
+    .stage{position:relative;z-index:5;min-height:100dvh;display:grid;place-items:center;padding:22px}
+    .scene{position:absolute;inset:0;display:grid;place-items:center;padding:22px;opacity:0;pointer-events:none;transform:translateY(18px) scale(.985);transition:opacity .52s ease,transform .52s cubic-bezier(.2,.9,.2,1)}
+    .scene.active{opacity:1;pointer-events:auto;transform:none}
+    .card{width:min(570px,100%);text-align:center;position:relative}
+    .panel{background:linear-gradient(145deg,rgba(255,244,230,.125),rgba(255,244,230,.045));border:1.4px solid var(--stroke);box-shadow:0 24px 80px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.12);border-radius:34px;padding:clamp(24px,6vw,42px);backdrop-filter:blur(16px)}
+    .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#b8dcff;font-weight:800;margin-bottom:18px;text-shadow:0 0 20px rgba(102,185,255,.55)}
+    h1{font-family:'Fraunces',serif;font-size:clamp(42px,11vw,74px);line-height:.94;letter-spacing:-.05em;color:var(--marble);text-wrap:balance;text-shadow:0 10px 36px rgba(0,0,0,.34)}
+    h1 .accent{display:inline-block;color:var(--lemon);text-shadow:0 0 26px rgba(247,201,72,.36);animation:floaty 2.9s ease-in-out infinite}
+    @keyframes floaty{50%{transform:translateY(-5px) rotate(-1.5deg)}}
+    .sub{font-size:clamp(15px,4vw,19px);line-height:1.55;color:rgba(255,244,230,.84);margin:20px auto 0;max-width:470px}
+    .choose{margin-top:34px;display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;min-height:120px;position:relative}
+    button{font-family:inherit}
+    .btn{border:none;cursor:pointer;border-radius:999px;font-weight:900;transition:transform .2s,filter .2s,box-shadow .2s}
+    .yes{font-size:22px;padding:20px 34px;color:#031220;background:linear-gradient(135deg,var(--lemon),#fff1a8 52%,var(--gold));box-shadow:0 0 0 2px rgba(255,255,255,.24),0 18px 42px rgba(247,201,72,.24);animation:pulse 1.8s ease-in-out infinite}
+    @keyframes pulse{50%{transform:scale(1.045)}}
+    .yes:hover{filter:brightness(1.06);transform:scale(1.07)}
+    .no{font-size:15px;padding:14px 22px;color:rgba(255,244,230,.8);background:rgba(255,244,230,.07);border:1px solid rgba(255,244,230,.2);backdrop-filter:blur(8px)}
+    .no.run{position:absolute}.no small{display:block;font-size:10px;letter-spacing:.18em;opacity:.64;margin-top:2px}
+    .q-title{font-family:'Fraunces',serif;font-size:clamp(31px,7.5vw,48px);line-height:1.02;letter-spacing:-.035em;color:var(--marble);margin-bottom:10px;text-wrap:balance}.q-help{font-size:15px;color:rgba(255,244,230,.68);margin-bottom:26px}
+    .dots{display:flex;justify-content:center;gap:9px;margin-bottom:24px}.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,244,230,.22);transition:.2s}.dots i.on{width:24px;border-radius:99px;background:var(--lemon);box-shadow:0 0 15px rgba(247,201,72,.55)}
+    .opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:0 auto 26px;max-width:480px}.opts.time{grid-template-columns:repeat(3,minmax(0,1fr));max-width:500px}.opt{cursor:pointer;border:1.4px solid rgba(255,244,230,.22);border-radius:22px;padding:17px 12px;min-height:82px;background:rgba(255,244,230,.065);color:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-weight:850;font-size:16px;box-shadow:0 12px 32px rgba(0,0,0,.16);transition:transform .18s,border-color .18s,background .18s,box-shadow .18s}.opt .emo{font-size:25px}.opt small{font-size:12px;opacity:.68;font-weight:700}.opt:hover{transform:translateY(-3px);border-color:rgba(102,185,255,.9);box-shadow:0 16px 38px rgba(47,128,237,.2)}.opt.sel{background:linear-gradient(145deg,rgba(247,201,72,.26),rgba(47,128,237,.18));border-color:var(--lemon);box-shadow:0 0 0 1.5px rgba(247,201,72,.5),0 18px 40px rgba(247,201,72,.16);transform:translateY(-2px)}
+    .next,.wa{cursor:pointer;border:none;border-radius:999px;font-weight:950;padding:16px 30px;font-size:17px;box-shadow:0 16px 36px rgba(0,0,0,.22);transition:transform .2s,filter .2s}.next{background:linear-gradient(135deg,var(--greek),var(--aegean));color:#031220}.next:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.6);box-shadow:none}.next:not(:disabled):hover,.wa:hover{transform:translateY(-2px) scale(1.025);filter:brightness(1.06)}.back{margin-top:18px;background:none;border:none;color:rgba(255,244,230,.55);cursor:pointer;font-weight:700}.back:hover{color:var(--lemon)}
+    .field{text-align:left;max-width:430px;margin:0 auto 18px}.field label{display:block;font-size:13px;letter-spacing:.05em;text-transform:uppercase;font-weight:850;color:#b8dcff;margin-bottom:8px}.field input{width:100%;border:1.4px solid rgba(255,244,230,.24);background:rgba(255,244,230,.075);border-radius:18px;padding:16px;color:var(--cream);font-size:16px;outline:none}.field input::placeholder{color:rgba(255,244,230,.42)}.field input:focus{border-color:var(--lemon);box-shadow:0 0 0 4px rgba(247,201,72,.15)}.geo{margin-top:10px;width:100%;border:1.5px dashed rgba(102,185,255,.55);background:rgba(47,128,237,.10);color:#b8dcff;border-radius:16px;padding:12px 14px;font-weight:850;cursor:pointer}.geo-msg{min-height:18px;margin-top:8px;color:var(--lemon);font-size:13px}
+    .recap{text-align:left;max-width:450px;margin:0 auto 26px;background:rgba(255,244,230,.07);border:1.3px solid rgba(255,244,230,.2);border-radius:24px;padding:18px 20px}.row{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed rgba(255,244,230,.14)}.row:last-child{border-bottom:0}.ic{font-size:20px}.lab{min-width:86px;font-weight:900;color:#b8dcff}.val{flex:1;color:#fff}.wa{background:linear-gradient(135deg,#25d366,#85efac);color:#052412}.sent{min-height:20px;margin-top:15px;color:var(--lemon);font-weight:700}.toast{position:fixed;left:50%;bottom:22px;z-index:90;transform:translateX(-50%) translateY(20px);opacity:0;background:rgba(4,17,31,.78);border:1px solid rgba(255,244,230,.24);border-radius:999px;padding:12px 18px;color:var(--cream);backdrop-filter:blur(12px);transition:.24s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media(max-width:520px){.stage,.scene{padding:16px}.panel{border-radius:28px}.opts,.opts.time{grid-template-columns:1fr}.opts.time{gap:10px}.opt{min-height:72px}.choose{gap:12px}.yes{font-size:20px;padding:18px 30px}.d1{left:-8%;top:8%;transform:rotate(-14deg) scale(.68)}.d2{right:-10%;bottom:10%;transform:rotate(18deg) scale(.62)}.column{right:-38px;top:8%;transform:scale(.72)}.vespa{font-size:54px}.olive{display:none}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+  <button class="music" id="musicBtn" aria-label="activar o pausar música">♪</button>
+  <div class="decor lemon d1"></div><div class="decor lemon d2"></div><div class="decor column"></div><div class="decor vespa">🛵</div><div class="decor olive">🫒</div>
+  <main class="stage">
+    <section class="scene active" id="s-intro">
+      <div class="card panel">
+        <div class="eyebrow">Formal · Mediterranean · Request</div>
+        <h1>¿Salís conmigo <span class="accent">este sábado?</span></h1>
+        <p class="sub">Prometo buena comida, charla decente, música italiana y un intento razonable de plan mediterráneo.</p>
+        <div class="choose" id="choose"><button class="btn yes" id="yes">Sí, obvio</button><button class="btn no" id="no">mm no sé<small>decline</small></button></div>
+      </div>
+    </section>
+    <section class="scene" id="s-time"><div class="card panel"><div class="dots"><i class="on"></i><i></i><i></i></div><div class="q-title">¿Qué horario te queda mejor?</div><div class="q-help">Elegí uno y seguimos con el operativo mediterráneo ✨</div><div class="opts time" id="timeOpts"></div><button class="next" id="timeNext" disabled>Seguir →</button></div></section>
+    <section class="scene" id="s-food"><div class="card panel"><div class="dots"><i></i><i class="on"></i><i></i></div><div class="q-title">¿Qué tenés ganas de comer?</div><div class="q-help">Podés elegir más de una. Cero juicio gastronómico.</div><div class="opts" id="foodOpts"></div><button class="next" id="foodNext" disabled>Seguir →</button><div><button class="back" data-back="s-time">← volver</button></div></div></section>
+    <section class="scene" id="s-where"><div class="card panel"><div class="dots"><i></i><i></i><i class="on"></i></div><div class="q-title">¿Dónde te paso a buscar?</div><div class="q-help">Para llegar puntual. O al menos intentarlo con dignidad.</div><div class="field"><label for="addr">Dirección</label><input id="addr" type="text" placeholder="Calle, número, barrio…" autocomplete="off"><button type="button" class="geo" id="geoBtn">📍 Usar mi ubicación actual</button><div class="geo-msg" id="geoMsg"></div></div><button class="next" id="whereNext" disabled>Ver resumen →</button><div><button class="back" data-back="s-food">← volver</button></div></div></section>
+    <section class="scene" id="s-done"><div class="card panel"><div class="q-title">Listo. Plan en marcha 🇮🇹🇬🇷</div><div class="q-help">Mandame esto y queda oficialmente aceptado.</div><div class="recap" id="recap"></div><button class="wa" id="waBtn">💚 Enviarle a Franco</button><div class="sent" id="sent"></div><div><button class="back" data-back="s-where">← editar algo</button></div></div></section>
+  </main>
+  <div class="toast" id="toast">Mediterranean request accepted ✨</div>
+<script>
+const CONFIG={
+  firma:'Franco',
+  whatsapp:'5493416674074',
+  dia:{label:'Sábado'},
+  horarios:[{label:'21:00',sub:'elegante'},{label:'21:15',sub:'llego con flow'},{label:'21:30',sub:'modo italiano relajado'}],
+  comidas:[{emo:'🍝',txt:'Pasta'},{emo:'🍕',txt:'Pizza italiana'},{emo:'🐟',txt:'Algo griego / mediterráneo'},{emo:'🍷',txt:'Tapeo + vino'},{emo:'🍨',txt:'Helado / postre'},{emo:'✨',txt:'Sorprendeme'}]
+};
+const $=s=>document.querySelector(s);const $$=s=>Array.from(document.querySelectorAll(s));const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;const state={time:'',foods:[],addr:''};
+function show(id){$$('.scene').forEach(s=>s.classList.remove('active'));$('#'+id).classList.add('active')}
+$$('.back').forEach(b=>b.onclick=()=>show(b.dataset.back));
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),1800)}
+function buildTimes(){const w=$('#timeOpts');if(w.children.length)return;CONFIG.horarios.forEach(h=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<span class="emo">🕘</span>${h.label}<small>${h.sub}</small>`;b.onclick=()=>{$$('#timeOpts .opt').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');state.time=h.label;$('#timeNext').disabled=false;miniBurst(innerWidth/2,innerHeight*.55);};w.appendChild(b)})}
+function buildFoods(){const w=$('#foodOpts');if(w.children.length)return;CONFIG.comidas.forEach(f=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<span class="emo">${f.emo}</span>${f.txt}`;b.onclick=()=>{b.classList.toggle('sel');state.foods=$$('#foodOpts .sel').map(x=>x.textContent.trim());$('#foodNext').disabled=state.foods.length===0;miniBurst(innerWidth/2,innerHeight*.55)};w.appendChild(b)})}
+$('#yes').onclick=()=>{initAudio();fullBurst();toast('Aceptado. Excelente decisión.');setTimeout(()=>{buildTimes();show('s-time')},1200)};
+$('#timeNext').onclick=()=>{buildFoods();show('s-food')};
+$('#foodNext').onclick=()=>show('s-where');
+$('#addr').addEventListener('input',e=>{state.addr=e.target.value.trim();$('#whereNext').disabled=!state.addr});
+$('#whereNext').onclick=()=>{renderRecap();show('s-done');fullBurst()};
+$('#geoBtn').onclick=()=>{const msg=$('#geoMsg');if(!navigator.geolocation){msg.textContent='Tu navegador no permite ubicación.';return}msg.textContent='Buscando ubicación…';navigator.geolocation.getCurrentPosition(pos=>{const {latitude,longitude}=pos.coords;state.addr=`Ubicación compartida: https://maps.google.com/?q=${latitude},${longitude}`;$('#addr').value=state.addr;$('#whereNext').disabled=false;msg.textContent='Ubicación lista.';miniBurst(innerWidth*.5,innerHeight*.58)},()=>{msg.textContent='No pude tomar la ubicación. Escribila manualmente.'},{enableHighAccuracy:true,timeout:9000})};
+function renderRecap(){const food=state.foods.join(', ');$('#recap').innerHTML=`<div class="row"><span class="ic">🗓️</span><span class="lab">Día</span><span class="val">${CONFIG.dia.label}</span></div><div class="row"><span class="ic">🕘</span><span class="lab">Hora</span><span class="val">${state.time}</span></div><div class="row"><span class="ic">🍽️</span><span class="lab">Comida</span><span class="val">${food}</span></div><div class="row"><span class="ic">📍</span><span class="lab">Dirección</span><span class="val">${state.addr}</span></div>`}
+$('#waBtn').onclick=()=>{const msg=`Formal Mediterranean Request aceptado 🇮🇹🇬🇷\n\nDía: ${CONFIG.dia.label}\nHora: ${state.time}\nComida: ${state.foods.join(', ')}\nDirección: ${state.addr}\n\nConfirmo salida con ${CONFIG.firma}.`;const url=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;$('#sent').textContent='Abriendo WhatsApp…';window.open(url,'_blank','noopener,noreferrer')};
+const taunts=['¿segura?','dale…','no parece legal','probá de nuevo','el sí está acá →','jajaja no','muy difícil','decline denied'];let tc=0;const no=$('#no'),choose=$('#choose');function flee(){const box=choose.getBoundingClientRect(),bw=no.offsetWidth,bh=no.offsetHeight;no.classList.add('run');no.style.left=Math.random()*Math.max(0,box.width-bw)+'px';no.style.top=Math.random()*Math.max(0,box.height-bh)+'px';no.innerHTML=taunts[tc%taunts.length]+'<small>decline</small>';tc++;$('#yes').style.transform=`scale(${Math.min(1.38,1+tc*.045)})`}['mouseenter','mousedown','touchstart','focus','click'].forEach(ev=>no.addEventListener(ev,e=>{e.preventDefault();flee()},{passive:false}));
+const cv=$('#confetti'),ctx=cv.getContext('2d');let W,H,parts=[];function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}addEventListener('resize',resize);resize();const conf=['🍋','🇮🇹','🇬🇷','✨','🍝','💙','🍕'];function fullBurst(){if(reduce)return;spawn(92,W*.5,H*.45,1.25);setTimeout(()=>spawn(54,W*.2,H*.38,.95),160);setTimeout(()=>spawn(54,W*.82,H*.42,.95),290)}function miniBurst(x,y){if(reduce)return;spawn(28,x,y,.75)}function spawn(n,x,y,p=1){for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=(2+Math.random()*7)*p,emo=Math.random()<.38;parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-(2+Math.random()*3),g:.06+Math.random()*.04,rot:Math.random()*6,vr:-.12+Math.random()*.24,a:1,fade:.006+Math.random()*.007,kind:emo?'emo':'rect',txt:conf[(Math.random()*conf.length)|0],c:['#F7C948','#2F80ED','#FFF4E6','#D64545','#6F8F3E'][(Math.random()*5)|0],r:4+Math.random()*8})}}
+function loop(){ctx.clearRect(0,0,W,H);for(let i=parts.length-1;i>=0;i--){const p=parts[i];p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.vx*=.992;p.rot+=p.vr;p.a-=p.fade;if(p.a<=0||p.y>H+50){parts.splice(i,1);continue}ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.globalAlpha=Math.max(0,p.a);if(p.kind==='emo'){ctx.font=`${18+p.r}px serif`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(p.txt,0,0)}else{ctx.fillStyle=p.c;ctx.fillRect(-p.r,-p.r*.45,p.r*2,p.r*.9)}ctx.restore()}requestAnimationFrame(loop)}loop();
+let audio,master,playing=false,timer,step=0;const scale=[392,440,493.88,523.25,587.33,659.25,783.99];function initAudio(){if(audio)return;try{audio=new (window.AudioContext||window.webkitAudioContext)();master=audio.createGain();master.gain.value=.0;master.connect(audio.destination);playMusic()}catch(e){}}
+function pluck(t,f,d=.34,v=.13){const o=audio.createOscillator(),g=audio.createGain(),lp=audio.createBiquadFilter();o.type='triangle';o.frequency.value=f;lp.type='lowpass';lp.frequency.value=1800;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.012);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(lp);lp.connect(g);g.connect(master);o.start(t);o.stop(t+d+.03)}
+function bass(t,f){const o=audio.createOscillator(),g=audio.createGain();o.type='sine';o.frequency.value=f/2;g.gain.setValueAtTime(.11,t);g.gain.exponentialRampToValueAtTime(.001,t+.42);o.connect(g);g.connect(master);o.start(t);o.stop(t+.45)}
+function playMusic(){if(!audio)return;playing=true;$('#musicBtn').textContent='♪';master.gain.cancelScheduledValues(audio.currentTime);master.gain.linearRampToValueAtTime(.48,audio.currentTime+.35);clearInterval(timer);timer=setInterval(()=>{const t=audio.currentTime+.02,i=step%16;if([0,4,8,12].includes(i))bass(t,[196,174.61,146.83,164.81][(step/4|0)%4]);pluck(t,scale[(step+[0,2,4,2,5,4,2,1][step%8])%scale.length],.28,.11);if(i%4===2)pluck(t+.12,scale[(step+4)%scale.length]*1.5,.22,.07);step++},170)}
+function pauseMusic(){playing=false;clearInterval(timer);if(master)master.gain.linearRampToValueAtTime(0,audio.currentTime+.25);$('#musicBtn').textContent='🔇'}
+$('#musicBtn').onclick=()=>{if(!audio){initAudio();return}playing?pauseMusic():playMusic()};['click','touchstart','keydown'].forEach(ev=>addEventListener(ev,()=>initAudio(),{once:true}));
+</script>
+</body>
+</html>
